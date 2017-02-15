@@ -66,7 +66,7 @@
             <!-- <div class="row"> -->
             <nav class="navbar navbar-default">
                 <div class="navbar-header">
-                    <!-- Mobile Toggle Menu Button --><a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a> <a class="navbar-brand" href="index.html">Hire a Lawyer</a> </div>
+                    <!-- Mobile Toggle Menu Button --><a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a> <a class="navbar-brand" href="<%=root_path%>">Hire a Lawyer</a> </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
@@ -86,18 +86,19 @@
   	<hr>
 	<div class="row">
       <!-- left column -->
-      <div class="col-md-3">
+      <!-- <div class="col-md-3">
         <div class="text-center">
           <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
           <h6>Upload a different photo...</h6>
           
           <input type="file" class="form-control">
         </div>
-      </div>
+      </div> -->
       
       <div class="col-md-9 personal-info">
         
         <li><%= link_to 'Logout', destroy_lawyer_session_path, method: :delete %></li>
+        <li><%= link_to 'Dashboard', dashboard_lawyers_path %></li>
         <h3>Personal info</h3>
         
         <%= form_tag(lawyer_profile_lawyers_path, { multipart: true, class: 'form-horizontal lawyer-profile'}) do %>
