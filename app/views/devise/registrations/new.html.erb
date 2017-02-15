@@ -5,14 +5,7 @@
         <%= devise_error_messages! %>
         <fieldset>
           <div id="legend">
-            <legend class="">Register</legend>
-          </div>
-          <div class="control-group">
-            <label class="control-label" for="username">Username</label>
-            <div class="controls">
-              <%= f.text_field :name, class: 'form-control input-lg', placeholder: "" %>
-              <p class="help-block">Username can contain any letters or numbers, without spaces</p>
-            </div>
+            <legend class="">Signup page for <%=resource.try(:class).try(:to_s) %></legend>
           </div>
        
           <div class="control-group">
@@ -36,14 +29,6 @@
             <div class="controls">
               <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control input-lg', placeholder: "" %>
               <p class="help-block">Please confirm password</p>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label" for="password_confirm">City</label>
-            <div class="controls">
-              <%= f.text_field :city, class: 'form-control input-lg', placeholder: "" %>
-              <p class="help-block">Please enter City name</p>
             </div>
           </div>
        

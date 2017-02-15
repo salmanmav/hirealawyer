@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hire a Lawyer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+    <!-- Animate.css -->
+    <!-- <link rel="stylesheet" href="css/animate.css"> -->
+    <!-- Icomoon Icon Fonts-->
+    <!-- <link rel="stylesheet" href="css/icomoon.css"> -->
+    <!-- Simple Line Icons -->
+    <!-- <link rel="stylesheet" href="css/simple-line-icons.css"> -->
+    <!-- Magnific Popup -->
+    <!-- <link rel="stylesheet" href="css/magnific-popup.css"> -->
+    <!-- Bootstrap  -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <!--
+	Default Theme Style
+	You can change the style.css (default color purple) to one of these styles
+
+	1. pink.css
+	2. blue.css
+	3. turquoise.css
+	4. orange.css
+	5. lightblue.css
+	6. brown.css
+	7. green.css
+
+	-->
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+    <!-- Modernizr JS -->
+   
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <header role="banner" id="fh5co-header" class="navbar-fixed-top fh5co-animated slideInDown">
+        <div class="container">
+            <!-- <div class="row"> -->
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <!-- Mobile Toggle Menu Button --><a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a> <a class="navbar-brand" href="index.html">Hire a Lawyer</a> </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
+                        <li><a href="#" data-nav-section="about"><span>About</span></a></li>
+                        <li><a href="#"><span>For Clients</span></a></li>
+                        <li><a href="#"><span>For Lawyers</span></a></li>
+                        <li><a href="#" data-nav-section="contact"><span>Contact</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- </div> -->
+        </div>
+    </header>
+   <div class="container">
+    <h1>Edit Profile</h1>
+    
+  	<hr>
+	<div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+          <h6>Upload a different photo...</h6>
+          
+          <input type="file" class="form-control">
+        </div>
+      </div>
+      
+      <div class="col-md-9 personal-info">
+        
+        <li><%= link_to 'Logout', destroy_lawyer_session_path, method: :delete %></li>
+        <h3>Personal info</h3>
+        
+        <%= form_tag(lawyers_path, { multipart: true, class: 'form-horizontal lawyer-profile'}) do %>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Name:</label>
+            <div class="col-lg-8">
+              <%= text_field_tag 'lawyer[name]', "", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Add Photo:</label>
+            <div class="col-lg-8">
+              <%= file_field_tag 'lawyer[photo]', class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Qualification:</label>
+            <div class="col-lg-8">
+            	<%= text_field_tag 'lawyer[qualification]', "", class: "form-control",placeholder: 'LL.B, LL.M etc' %>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Contact number:</label>
+            <div class="col-lg-8">
+              <%= text_field_tag 'lawyer[contact]', "", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Total no. of Cases fought upto date:</label>
+            <div class="col-lg-8">
+              <%= number_field_tag 'lawyer[total_cases]', "", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Cases won:</label>
+            <div class="col-lg-8">
+            	<%= number_field_tag 'lawyer[cases_won]', "", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Courts you work in:</label>
+            <div class="col-lg-8">
+              <%= text_field_tag 'lawyer[courts]', "", class: "form-control",placeholder: 'High court,Civil court etc' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Gender:</label>
+            <div class="col-lg-8">
+              <div class="ui-select">
+                <select id="user_gender" name="lawyer[gender]" class="form-control">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Office Location:</label>
+            <div class="col-md-8">
+              <%= text_field_tag 'lawyer[location]', "", class: "form-control geocomplete" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Your website:</label>
+            <div class="col-md-8">
+              <%= text_field_tag 'lawyer[website]', "", class: "form-control", placeholder: 'optional' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Write about yourself:</label>
+            <div class="col-md-8">
+            	<%= text_field_tag 'lawyer[bio]', "", class: "form-control", placeholder: 'optional' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <b>Upload your resume:</b>
+            <label class="custom-file">
+              <div class="col-md-8">
+              <%= file_field_tag 'lawyer[resume]', class: 'form-control' %>
+              <span class="custom-filecontrol"></span>
+              </div>
+            </label>            
+          </div>
+          <br/>
+          <% arr = ["Aboriginal law", "Administrative law", "Admiralty maritime law", "Aerospace & defense", "Agricultural law", "Animals law", " Antitrust & trade regulations","Banking & financial institutions", "Business law", "Charity law", "Civil rights law", "Class action", "Communications law", "Constitutional law", "Consumer law", "Corporation & enterprise law", "Debt collection",]  %>
+
+          <div class="checkdemo">
+            <b>Select your speciality:</b>
+            <% Speciality.all.each do |role| %>
+            	<label class="checkbox-inline no_indent">
+            		<%= check_box_tag 'speciality_ids[]', role.id -%> <%=role.name%>
+            	</label>
+            <% end %>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="button" id = "lawyer-form" class="btn btn-primary" value="Save Changes">
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>  
+        <%end%>
+      </div>
+  </div>
+</div>
+<hr>	
+    <footer id="footer" role="contentinfo"> <a href="#" class="gotop js-gotop"><i class="icon-arrow-up2"></i></a>
+        <div class="container">
+            <div class="">
+                <div class="col-md-12 text-center">
+                    <p>&copy; All Rights Reserved.
+                        <br>Created by <a href="http://hireAlawyer.com/" target="_blank">hireAlawyer.com</a> Images: <a href="http://pexels.com/" target="_blank">Pexels</a>, <a href="http://plmd.me/" target="_blank">plmd.me</a></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <ul class="social social-circle">
+                        <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(function () {
+            // $(".geocomplete").geocomplete().bind("geocode:result", function (event, result) {
+            //     $.log("Result: " + result.formatted_address);
+            // }).bind("geocode:error", function (event, status) {
+            //     $.log("ERROR: " + status);
+            // }).bind("geocode:multiple", function (event, results) {
+            //     $.log("Multiple: " + results.length + " results found");
+            // });
+        });
+    </script>
+    <!-- For demo purposes only styleswitcher ( You may delete this anytime ) -->
+    <script>
+        $(function () {
+        	$("#lawyer-form").click(function(){
+        		$('form.lawyer-profile').submit();
+        	});
+            $('#colour-variations ul').styleSwitcher({
+                defaultThemeId: 'theme-switch'
+                , hasPreview: false
+                , cookie: {
+                    expires: 30
+                    , isManagingLoad: true
+                }
+            });
+            $('.option-toggle').click(function () {
+                $('#colour-variations').toggleClass('sleep');
+            });
+        });
+    </script>
+    <!-- End demo purposes only -->
+    <!-- Main JS (Do not remove) -->
+</body>
+
+</html>

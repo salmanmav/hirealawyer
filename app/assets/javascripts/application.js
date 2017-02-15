@@ -13,4 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require modernizr.min
+//= require countTo
+//=require easing
+//=require geocomplete
+//=require magnific-popup.min
+//=require magnific-popup-options
+//=require main
+//=require stellar.min
+//=require style.switcher
+//=require waypoints.min
+
+
 //= require_tree .

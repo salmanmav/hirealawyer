@@ -5,7 +5,7 @@
         <%= devise_error_messages! %>
         <fieldset>
           <div id="legend">
-            <legend class="">Log In</legend>
+            <legend class="">Log In for <%=resource.try(:class).try(:to_s) %></legend>
           </div>
        
           <div class="control-group">
