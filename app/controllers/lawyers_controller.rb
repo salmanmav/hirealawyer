@@ -2,7 +2,6 @@ class LawyersController < ApplicationController
 	before_action :authenticate_lawyer!
 
 	def create
-		binding.pry
 		lawyer = current_lawyer
 		if lawyer.update(lawyer_params)
 		
