@@ -88,10 +88,11 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-          <h6>Upload a different photo...</h6>
+          <!-- <img src="//placehold.it/100" class="avatar img-circle" alt="avatar"> -->
+          <%= image_tag @lawyer.photo,  class: "avatar img-circle", alt: "avatar" %>
           
-          <input type="file" class="form-control">
+          <!-- <h6>Upload a different photo...</h6> -->
+          
         </div>
       </div>
       
@@ -104,94 +105,76 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Name:</label>
             <div class="col-lg-8">
-              <%= text_field_tag 'lawyer[name]', "testtttt", class: "form-control",:readonly => true %>
+              <%= text_field_tag 'lawyer[name]', @lawyer.name, class: "form-control",:readonly => true %>
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Add Photo:</label>
-            <div class="col-lg-8">
-              <%= file_field_tag 'lawyer[photo]', class: "form-control" %>
-            </div>
-          </div>
+      
           <div class="form-group">
             <label class="col-lg-3 control-label">Qualification:</label>
             <div class="col-lg-8">
-            	<%= text_field_tag 'lawyer[qualification]', "", class: "form-control",placeholder: 'LL.B, LL.M etc' %>
+            	<%= text_field_tag 'lawyer[qualification]', @lawyer.qualification, class: "form-control",placeholder: 'LL.B, LL.M etc',:readonly => true %>
             </div>
           </div>
           
           <div class="form-group">
             <label class="col-lg-3 control-label">Contact number:</label>
             <div class="col-lg-8">
-              <%= text_field_tag 'lawyer[contact]', "", class: "form-control" %>
+              <%= text_field_tag 'lawyer[contact]', @lawyer.contact, class: "form-control",:readonly => true %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Total no. of Cases fought upto date:</label>
             <div class="col-lg-8">
-              <%= number_field_tag 'lawyer[total_cases]', "", class: "form-control" %>
+              <%= number_field_tag 'lawyer[total_cases]', @lawyer.total_cases, class: "form-control",:readonly => true %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Cases won:</label>
             <div class="col-lg-8">
-            	<%= number_field_tag 'lawyer[cases_won]', "", class: "form-control" %>
+            	<%= number_field_tag 'lawyer[cases_won]',  @lawyer.cases_won, class: "form-control",:readonly => true %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Courts you work in:</label>
             <div class="col-lg-8">
-              <%= text_field_tag 'lawyer[courts]', "", class: "form-control",placeholder: 'High court,Civil court etc' %>
+              <%= text_field_tag 'lawyer[courts]', @lawyer.courts, class: "form-control",placeholder: 'High court,Civil court etc',:readonly => true %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Gender:</label>
             <div class="col-lg-8">
-              <div class="ui-select">
-                <select id="user_gender" name="lawyer[gender]" class="form-control">
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-              </div>
+              <%= text_field_tag 'lawyer[gender]', @lawyer.gender, class: "form-control", :readonly => true %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Office Location:</label>
             <div class="col-md-8">
-              <%= text_field_tag 'lawyer[location]', "", class: "form-control geocomplete" %>
+              <%= text_field_tag 'lawyer[location]', @lawyer.location, class: "form-control geocomplete",:readonly => true %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Your website:</label>
             <div class="col-md-8">
-              <%= text_field_tag 'lawyer[website]', "", class: "form-control", placeholder: 'optional' %>
+              <%= text_field_tag 'lawyer[website]', @lawyer.website, class: "form-control", placeholder: 'optional',:readonly => true %>
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Write about yourself:</label>
             <div class="col-md-8">
-            	<%= text_field_tag 'lawyer[bio]', "", class: "form-control", placeholder: 'optional' %>
+            	<%= text_field_tag 'lawyer[bio]', @lawyer.bio, class: "form-control", placeholder: 'optional',:readonly => true %>
             </div>
           </div>
-          <div class="form-group">
-            <b>Upload your resume:</b>
-            <label class="custom-file">
-              <div class="col-md-8">
-              <%= file_field_tag 'lawyer[resume]', class: 'form-control' %>
-              <span class="custom-filecontrol"></span>
-              </div>
-            </label>            
-          </div>
+        
           <br/>
           <% arr = ["Aboriginal law", "Administrative law", "Admiralty maritime law", "Aerospace & defense", "Agricultural law", "Animals law", " Antitrust & trade regulations","Banking & financial institutions", "Business law", "Charity law", "Civil rights law", "Class action", "Communications law", "Constitutional law", "Consumer law", "Corporation & enterprise law", "Debt collection",]  %>
 
           <div class="checkdemo">
-            <b>Select your speciality:</b>
-            <% Speciality.all.each do |role| %>
-            	<label class="checkbox-inline no_indent">
-            		<%= check_box_tag 'speciality_ids[]', role.id -%> <%=role.name%>
-            	</label>
-            <% end %>
+            <b>Your specialities:</b>
+            <%if @lawyer.specialities.present? %>
+            <% @lawyer.specialities.all.each do |role| %>
+              <%= check_box_tag 'speciality_ids[]', role.id, true -%> <%=role.name%>
+            <%end%>
+            <%end%>
           </div>
           
           <div class="form-group">
