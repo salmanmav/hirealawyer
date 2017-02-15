@@ -1,4 +1,4 @@
-class Lawyers::SessionsController < Devise::SessionsController
+class LawyersDevise::SessionsController < Devise::SessionsController
   respond_to :html, :json
   # layout 'sessions'
 

@@ -1,4 +1,4 @@
-class Lawyers::RegistrationsController < Devise::RegistrationsController
+class LawyersDevise::RegistrationsController < Devise::RegistrationsController
   respond_to :html, :json
   before_action :configure_permitted_parameters
   # layout 'sessions'
