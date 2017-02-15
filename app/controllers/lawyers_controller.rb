@@ -1,7 +1,7 @@
 class LawyersController < ApplicationController
 	before_action :authenticate_lawyer!
 
-	def create
+	def lawyer_profile
 		lawyer = current_lawyer
 		if lawyer.update(lawyer_params)
 		
@@ -13,12 +13,16 @@ class LawyersController < ApplicationController
         	sp.save
         end
       end
+      redirect_to dashboard_lawyers_path
 		else
-			
+			redirect_to :back
 		end
-		redirect_to :back
+		
 	end
 
+	def dashboard
+		@lawyer = current_lawyer
+	end
 	def index
 		@lawyer = current_lawyer
 	end

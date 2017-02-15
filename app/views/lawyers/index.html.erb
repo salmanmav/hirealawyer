@@ -100,7 +100,7 @@
         <li><%= link_to 'Logout', destroy_lawyer_session_path, method: :delete %></li>
         <h3>Personal info</h3>
         
-        <%= form_tag(lawyers_path, { multipart: true, class: 'form-horizontal lawyer-profile'}) do %>
+        <%= form_tag(lawyer_profile_lawyers_path, { multipart: true, class: 'form-horizontal lawyer-profile'}) do %>
           <div class="form-group">
             <label class="col-lg-3 control-label">Name:</label>
             <div class="col-lg-8">
