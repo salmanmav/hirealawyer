@@ -23,6 +23,13 @@ Rails.application.routes.draw do
       root to: 'lawyers#index', as: 'authenticated_lawyer_root'
     end
   end
+
+  devise_scope :clients do
+    authenticated  do
+      root to: 'clients#index', as: 'authenticated_client_root'
+    end
+  end
+
   root 'clients#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

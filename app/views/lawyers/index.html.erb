@@ -67,6 +67,10 @@
             <nav class="navbar navbar-default">
                 <div class="navbar-header">
                     <!-- Mobile Toggle Menu Button --><a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a> <a class="navbar-brand" href="<%=root_path%>">Hire a Lawyer</a> </div>
+                    <a href="/clients">For Client</a>
+                    <a href="/lawyers">For Lawyer</a>
+                    <%= link_to 'Dashboard', dashboard_lawyer_path(current_lawyer) %>
+                    <%= link_to 'Logout', destroy_lawyer_session_path, method: :delete %>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
@@ -97,8 +101,8 @@
       
       <div class="col-md-9 personal-info">
         
-        <li><%= link_to 'Logout', destroy_lawyer_session_path, method: :delete %></li>
-        <li><%= link_to 'Dashboard', dashboard_lawyer_path(current_lawyer) %></li>
+      
+        
         <h3>Personal info</h3>
         
         <%= form_tag(lawyer_profile_lawyers_path, { multipart: true, class: 'form-horizontal lawyer-profile'}) do %>
