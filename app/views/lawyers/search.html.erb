@@ -1,0 +1,14 @@
+<p>Search Results:</p>
+
+<%if @lawyers.present? %>
+	<%@lawyers.each_with_index do |lawyer,index| %>
+		<div class="container">
+			<span>Result No. <%=index+1%> </span>
+			<br/>
+			<%= image_tag lawyer.photo %>
+			<p><%=lawyer.name%></p>
+			<p><%= link_to 'Goto Profile', profile_lawyer_path(lawyer) %>
+		</div>
+	<%end%>
+
+<%end%>

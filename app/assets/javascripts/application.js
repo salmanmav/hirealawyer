@@ -15,7 +15,8 @@
 //= require turbolinks
 //= require modernizr.min
 //= require countTo
-//=require easing
+//= require easing
+//= require google_map
 //=require geocomplete
 //=require magnific-popup.min
 //=require magnific-popup-options

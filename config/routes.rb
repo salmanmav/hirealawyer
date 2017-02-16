@@ -7,8 +7,13 @@ Rails.application.routes.draw do
   devise_for :clients, controllers: { registrations: 'clients/registrations' }
   resources :clients
   resources :lawyers do
+    member do 
+      get :dashboard
+      get :profile
+    end
   	collection do
-  		get :dashboard
+  		post :search
+      # get :dashboard
   		post :lawyer_profile
   	end
   end

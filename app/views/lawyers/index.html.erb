@@ -98,7 +98,7 @@
       <div class="col-md-9 personal-info">
         
         <li><%= link_to 'Logout', destroy_lawyer_session_path, method: :delete %></li>
-        <li><%= link_to 'Dashboard', dashboard_lawyers_path %></li>
+        <li><%= link_to 'Dashboard', dashboard_lawyer_path(current_lawyer) %></li>
         <h3>Personal info</h3>
         
         <%= form_tag(lawyer_profile_lawyers_path, { multipart: true, class: 'form-horizontal lawyer-profile'}) do %>
@@ -159,7 +159,7 @@
           <div class="form-group">
             <label class="col-md-3 control-label">Office Location:</label>
             <div class="col-md-8">
-              <%= text_field_tag 'lawyer[location]', "", class: "form-control geocomplete" %>
+              <%= text_field_tag 'lawyer[location]', "", class: "form-control geocomplete", id:'location-2' %>
             </div>
           </div>
           <div class="form-group">
@@ -227,16 +227,19 @@
             </div>
         </div>
     </footer>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script>
+
         $(function () {
-            // $(".geocomplete").geocomplete().bind("geocode:result", function (event, result) {
-            //     $.log("Result: " + result.formatted_address);
-            // }).bind("geocode:error", function (event, status) {
-            //     $.log("ERROR: " + status);
-            // }).bind("geocode:multiple", function (event, results) {
-            //     $.log("Multiple: " + results.length + " results found");
-            // });
+            $("#location-2").geocomplete().bind("geocode:result", function (event, result) {
+              city = result.address_components[0].long_name
+                console.log("Result: " + result.formatted_address);
+            }).bind("geocode:error", function (event, status) {
+                console.log("ERROR: " + status);
+            }).bind("geocode:multiple", function (event, results) {
+                console.log("Multiple: " + results.length + " results found");
+            });
         });
     </script>
     <!-- For demo purposes only styleswitcher ( You may delete this anytime ) -->
