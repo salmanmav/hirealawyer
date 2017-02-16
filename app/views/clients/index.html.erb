@@ -73,6 +73,8 @@
                     <a href="/lawyers">For Lawyer</a>
                     <% if current_client.present? %>
                     	<%= link_to 'Logout', destroy_client_session_path, method: :delete %>
+                    <%else%>
+                    	<%= link_to 'Client Login', new_client_session_path %>
                 		<%end%>
 
                 <div id="navbar" class="navbar-collapse collapse">
